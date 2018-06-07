@@ -43,13 +43,15 @@ class StepFragment() : Fragment() {
 
         mItem = arguments?.getSerializable(STEP) as Step //Retrieve Slide via Intent extra
 
-        listener?.fragmentStepInit(mItem.image) //Set image to parent
+        listener?.fragmentStepInit("") //Set image to parent
 
         val text = view.findViewById<TextView>(R.id.step_text)
         text.text = mItem.description //Populate text
 
-        val image = view.findViewById<ImageView>(R.id.step_image)
-        Glide.with(this).load(mItem.image).into(image)
+        if(mItem.image != null){
+            val image = view.findViewById<ImageView>(R.id.step_image)
+            Glide.with(this).load(mItem.image).into(image)
+        }
 
         return view
     }

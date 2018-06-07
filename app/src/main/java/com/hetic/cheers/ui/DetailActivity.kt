@@ -107,6 +107,7 @@ class DetailActivity : AppCompatActivity(),
                 }
 
                 override fun onFailure(call: Call<CocktailDetail>?, t: Throwable?) {
+                    setEndRoot(root)
                     displayMessage("Une erreur s'est produite, merci de réessayer.", this@DetailActivity)
                 }
             })
@@ -119,7 +120,11 @@ class DetailActivity : AppCompatActivity(),
         else { goToHome() }
     }
 
-    override fun fragmentDetailIntroCallback(launchSteps: Boolean) { goToSteps() }
+    override fun fragmentDetailIntroCallback(launchSteps: Boolean) {
+    if(mItem.steps.size > 0){ goToSteps() }
+    else {
+        replaceFragment(supportFragmentManager,DetailEndFragment.newInstance(mItem,IS_RATED),R.id.fragments) }
+    }
     override fun fragmentDetailEndCallback(destination: String, value : Float?) { setRate(destination,value ?: 0F) }
 
 }

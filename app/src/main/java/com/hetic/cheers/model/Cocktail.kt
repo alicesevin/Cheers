@@ -36,7 +36,7 @@ data class Cocktail  (
     fun getFilteredTags(i : Int) : List<Tag> {
         if(tags.size <= 0){ return arrayListOf() }
         val tags = tags.filter{ i -> i.type != "context"}
-        return tags.subList(1,if(tags.size > (i-1)){i}else{tags.size})
+        return tags.subList(1,if(tags.size > i){i}else{tags.size})
     }
 
     fun getRate(value : String,votes : String) : Rate { return Rate(value,votes)  }

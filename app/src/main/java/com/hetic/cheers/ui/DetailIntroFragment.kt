@@ -57,6 +57,7 @@ class DetailIntroFragment : Fragment() {
             start_button.setOnClickListener{
                 listener?.fragmentDetailIntroCallback(true)
             }
+            if(mItem.steps.size == 0){ start_button.setText("Noter") }
         }
         return view
     }

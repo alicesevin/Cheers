@@ -66,6 +66,7 @@ class DetailEndFragment : Fragment() {
 
         val stepsBtn = view.findViewById<Button>(R.id.restart_btn)
         stepsBtn.setOnClickListener{ listener?.fragmentDetailEndCallback("steps",ratingBar.rating)}
+        if(mItem.steps.size == 0){ stepsBtn.setVisibility(View.GONE) }
         return view
     }
 
