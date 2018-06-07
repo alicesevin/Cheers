@@ -155,7 +155,6 @@ class StepsActivity() : AppCompatActivity(), StepFragment.Listener, Parcelable {
 
         override fun onSensorChanged(event: SensorEvent) {
             if (event.sensor.type == Sensor.TYPE_PROXIMITY) {
-                Log.d("Sensor",event.values[0].toString())
                 if (event.values[0] <= 10 && event.values[0] != oldSensorValue.toFloat()) {
                     if(FIRST === false && SECOND === false){
                         FIRST = true

@@ -106,6 +106,7 @@ class ResultsActivity() : Activity() {
             }
         }
         back_button.setOnClickListener{ this.onBackPressed() }
+        search_button.setOnClickListener{ this.onBackPressed() }
 
     }
 
