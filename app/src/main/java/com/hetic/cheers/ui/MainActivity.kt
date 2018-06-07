@@ -5,6 +5,11 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
+import android.view.KeyEvent
+import android.view.MotionEvent
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.hetic.cheers.R
@@ -88,8 +93,16 @@ class MainActivity : AppCompatActivity() {
         input_search.onItemClickListener = AdapterView.OnItemClickListener{
             parent,view,position,id->
             val selectedItem = parent.getItemAtPosition(position).toString()
-            goDetail(cocktailsId[position])
+            input_search.setText("")
+            view?.hideKeyboard()
+            getCurrentFocus().clearFocus()
+            goDetail(cocktailsId[cocktailsName.indexOf(selectedItem)])
         }
+    }
+
+    fun View.hideKeyboard() {
+        val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(windowToken, 0)
     }
 
     fun initAdvancedSearchButton(){
