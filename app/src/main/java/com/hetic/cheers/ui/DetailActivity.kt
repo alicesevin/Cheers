@@ -51,7 +51,6 @@ class DetailActivity : AppCompatActivity(),
         val item = itemsService.getCocktail(id)
         item.enqueue(object : Callback<CocktailDetail> {
             override fun onResponse(call: Call<CocktailDetail>?, response: Response<CocktailDetail>?) {
-                Log.d("Cocktail",response.toString())
                 response?.body()?.let { source ->
                     mItem = source
                     loadFragment(supportFragmentManager, DetailIntroFragment.newInstance(mItem), R.id.fragments)
@@ -85,7 +84,6 @@ class DetailActivity : AppCompatActivity(),
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val root = data?.getBooleanExtra(END,false)
-        Log.d("GO END ?",root.toString())
         getFragment(root)
     }
 
@@ -104,7 +102,6 @@ class DetailActivity : AppCompatActivity(),
             val rateService = service.setRate(mItem.id.toString(), rate.toString())
             rateService.enqueue(object : Callback<CocktailDetail> {
                 override fun onResponse(call: Call<CocktailDetail>?, response: Response<CocktailDetail>?) {
-                    Log.d("RATE", response.toString())
                     response?.body()?.let { source ->
                         displayMessage("Votre note a été prise en compte", this@DetailActivity)
                         mItem = source

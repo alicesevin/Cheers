@@ -26,8 +26,6 @@ data class CocktailDetail  (
         return tags.subList(1,if(tags.size > 3){4}else{tags.size})
     }
 
-    fun getRate(value : String,votes : String) : Rate { return Rate(value,votes) }
-
     fun getRating(value : String,votes : String) : Float { return Rate(value,votes).getRating() }
 
 }

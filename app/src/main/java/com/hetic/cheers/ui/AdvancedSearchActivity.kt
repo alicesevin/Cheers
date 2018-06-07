@@ -138,10 +138,7 @@ class AdvancedSearchActivity : AppCompatActivity(), AdvancedSearchFragment.Liste
      */
     private fun initFragmentSwipeListener(){
         container.addOnPageChangeListener(object : OnPageChangeListener {
-            override fun onPageSelected(position: Int) {
-                Log.d("SLIDE "+position.toString(),"Slide séléctionnée")
-                setButtonText(position)
-            }
+            override fun onPageSelected(position: Int) { setButtonText(position) }
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
             override fun onPageScrollStateChanged(state: Int) {}
         })
@@ -151,7 +148,6 @@ class AdvancedSearchActivity : AppCompatActivity(), AdvancedSearchFragment.Liste
      * Set button title depending on Slide index
      */
     private fun setButtonText(position : Int){
-        Log.d("Position",position.toString())
         previous_button.text = resources.getString(if(position == 0){R.string.destroy}else{R.string.back})
         back_button.text = resources.getString(if(position == (mSections.size - 1)){R.string.valid_text}else{R.string.next})
     }

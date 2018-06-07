@@ -3,8 +3,6 @@ package com.hetic.cheers.adapter
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ToggleButton
-import com.hetic.cheers.R
 import com.hetic.cheers.model.Tag
 import com.hetic.cheers.utils.inflate
 import kotlinx.android.synthetic.main.cocktail_card_item.view.*
@@ -19,22 +17,13 @@ class TagCardAdapter(private val mTemplate : Int,val listener: (Tag) -> Unit) : 
 
     override fun getItemCount() = mItems.size
 
+    fun swapItems(items: List<Tag>) { mItems = items }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: Tag, listener: (Tag) -> Unit) = with(itemView) {
-            setContent(item)
+            name.text = item.name
             setOnClickListener { listener(item) }
         }
-
-        private fun setContent(item : Tag) = with(itemView) {
-            //val button = itemView.findViewById<ToggleButton>(R.id.name)
-            name.text = item.name
-            /*button.textOn = item.name
-            button.textOff = item.name*/
-        }
-    }
-
-    fun swapItems(items: List<Tag>) {
-        mItems = items
     }
 }

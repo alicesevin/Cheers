@@ -5,12 +5,10 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.hetic.cheers.R
 import com.hetic.cheers.adapter.CocktailCardAdapter
-import com.hetic.cheers.api.CocktailService
 import com.hetic.cheers.model.Cocktail
 import com.hetic.cheers.model.Tag
 import kotlinx.android.synthetic.main.activity_main.*
@@ -24,11 +22,6 @@ class MainActivity : AppCompatActivity() {
     private var mRecommandations : ArrayList<Cocktail> = arrayListOf()
 
     companion object {
-
-        @JvmStatic
-        fun getIntent(context: Context): Intent {
-            return Intent(context, MainActivity::class.java)
-        }
 
         val COCKTAILS = "cocktails"
         val RECOMMANDATIONS = "recommandations"
@@ -47,6 +40,12 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(RECOMMANDATIONS, recommandations as Serializable)
             return intent
         }
+
+        @JvmStatic
+        fun getIntent(context: Context): Intent {
+            return Intent(context, MainActivity::class.java)
+        }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,14 +61,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //INIT RECYCLER VIEW WITH CHOSEN ITEM LAYOUT AND ORIENTATION FOR TAGS
-    private val mOrientation : Int = LinearLayoutManager.HORIZONTAL
-    private val mTemplate : Int = R.layout.cocktail_card_item_horizontal
-
     private fun initCocktailList(){
-        val adapter = CocktailCardAdapter(mTemplate) {goDetail(it.id) }
+        val adapter = CocktailCardAdapter{ goDetail(it.id) }
         cocktail_list.adapter = adapter
-        cocktail_list.layoutManager = LinearLayoutManager(this, mOrientation,false)
+        cocktail_list.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
         adapter.swapItems(mRecommandations)
         adapter.notifyDataSetChanged()
     }

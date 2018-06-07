@@ -12,8 +12,7 @@ import com.hetic.cheers.model.Cocktail
 import com.hetic.cheers.utils.inflate
 import kotlinx.android.synthetic.main.cocktail_card_item.view.*
 
-class ResultAdapter(
-        val listener: (Cocktail) -> Unit) : RecyclerView.Adapter<ResultAdapter.ViewHolder>() {
+class ResultAdapter(val listener: (Cocktail) -> Unit) : RecyclerView.Adapter<ResultAdapter.ViewHolder>() {
 
     private var mItems: List<Cocktail> = emptyList()
 

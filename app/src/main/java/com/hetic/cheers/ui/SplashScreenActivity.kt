@@ -19,6 +19,7 @@ class SplashScreenActivity: AppCompatActivity() {
     private val TAG : String = "ERROR"
 
     private lateinit var mItemsService : CocktailService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
@@ -35,12 +36,9 @@ class SplashScreenActivity: AppCompatActivity() {
         items.enqueue(object : Callback<ArrayList<Cocktail>> {
             override fun onResponse(call: Call<ArrayList<Cocktail>>?, response: Response<ArrayList<Cocktail>>?) {
                 response?.body()?.let { source ->
-                    Log.d("All",response?.body()?.toString())
-                    if(source != null){
-                        mRecommandations = source
-                        DATAS += 1
-                        if(DATAS == 2){ scheduleSplashScreen() }
-                    }
+                    mRecommandations = source
+                    DATAS += 1
+                    if(DATAS == 2){ scheduleSplashScreen() }
                 }
             }
 
@@ -54,7 +52,6 @@ class SplashScreenActivity: AppCompatActivity() {
         val items = mItemsService.getAllCocktails("","","","","","1")
         items.enqueue(object : Callback<CocktailSource> {
             override fun onResponse(call: Call<CocktailSource>?, response: Response<CocktailSource>?) {
-                Log.d("All",response?.body()?.toString())
                 response?.body()?.let { source ->
                     mTags = source.tags
                     mCocktails = source.cocktails

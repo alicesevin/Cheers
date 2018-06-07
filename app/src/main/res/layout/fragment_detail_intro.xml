@@ -69,7 +69,7 @@
         android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/padding_s"
+        android:layout_marginEnd="@dimen/padding_sm"
         app:layout_anchor="@id/content_detail"
         app:layout_anchorGravity="bottom|end"
         android:text="@string/start"

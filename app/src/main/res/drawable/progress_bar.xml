@@ -6,6 +6,9 @@
             <solid android:color="@color/grayLighter"/>
             <corners android:radius="@dimen/btnRadius"/>
             <size android:height="12dp" />
+            <stroke
+                android:width="@dimen/tagBorder"
+                android:color="@color/dividerBg" />
         </shape>
     </item>
 
@@ -19,6 +22,9 @@
                     android:angle="@dimen/btnGradientAngle" />
                 <corners android:radius="@dimen/btnRadius"/>
                 <size android:height="12dp" />
+                <stroke
+                    android:width="@dimen/tagBorder"
+                    android:color="@color/dividerBg" />
             </shape>
         </clip>
     </item>

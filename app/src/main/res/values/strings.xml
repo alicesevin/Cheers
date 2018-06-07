@@ -56,4 +56,7 @@
     <string name="voted">Merci d\'avoir voté.</string>
     <string name="change_serach">Modifier ma recherche</string>
     <string name="no_results_text">Nous n\'avons trouvé aucun résultat correspondant à votre recherche.</string>
+    <string name="tips_text">Passez la main au dessus du capteur \nde votre téléphone pour passer d’une étape à l’autre.</string>
+    <string name="tips_title">Passer une étape</string>
+    <string name="tips_btn">J\'ai compris !</string>
 </resources>

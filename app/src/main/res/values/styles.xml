@@ -50,6 +50,7 @@
 
     <style name="progressBar" parent="android:Widget.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_bar</item>
+        <item name="android:height">12dp</item>
     </style>
 
     <style name="textProgress" parent="textStyle">
@@ -86,6 +87,10 @@
 
     <style name="subtitleStyle" parent="titleStyle">
         <item name="android:textSize">@dimen/subtitleFs</item>
+    </style>
+    <style name="titleTips" parent="textStyle">
+        <item name="android:textColor">@color/grayMedium</item>
+        <item name="android:fontFamily">@font/avenir_heavy</item>
     </style>
 
     <!-- CARDS -->
@@ -252,6 +257,10 @@
         <item name="android:textSize">@dimen/navBtnFs</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:drawablePadding">@dimen/padding_xs</item>
+    </style>
+
+    <style name="linkRed" parent="linkWhite">
+        <item name="android:textColor">@color/primaryDark</item>
     </style>
 
     <style name="linkRight" parent="btnStyle">

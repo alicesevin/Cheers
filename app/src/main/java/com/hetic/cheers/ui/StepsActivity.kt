@@ -7,11 +7,11 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import android.util.Log
 import com.hetic.cheers.R
 import com.hetic.cheers.model.CocktailDetail
 import com.hetic.cheers.model.Step
 import kotlinx.android.synthetic.main.activity_steps.*
+import kotlinx.android.synthetic.main.popin_step.*
 import java.io.Serializable
 import android.hardware.Sensor
 import android.hardware.SensorEvent
@@ -20,6 +20,10 @@ import android.hardware.SensorManager
 import android.os.Handler
 import android.os.Parcel
 import android.os.Parcelable
+import android.support.v4.view.ViewPager
+import android.transition.TransitionManager
+import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import java.util.*
 
@@ -27,14 +31,6 @@ class StepsActivity() : AppCompatActivity(), StepFragment.Listener, Parcelable {
 
     private lateinit var mItem: CocktailDetail
     private lateinit var mSteps : List<Step>
-    private var timeStamp: Long = Date().getTime();
-    private var oldSensorValue: Float = 0.0f
-    private var isLocked : Boolean = false
-    internal lateinit var mySensorManager: SensorManager
-    internal var myProximitySensor: Sensor? = null
-    private var currentRunnable: Runnable? = null
-    var currentTimeStamp = 0L
-    var currentTimeStamp2 = 0L
 
     /**
      * Init and populate view with data
@@ -53,11 +49,18 @@ class StepsActivity() : AppCompatActivity(), StepFragment.Listener, Parcelable {
 
         previous_step.setOnClickListener {goPrevious()}
         next_step.setOnClickListener {goNext()}
-        initSensor()
         initLockButton()
+        initFragmentSwipeListener()
         back_button.setOnClickListener{ this.onBackPressed() }
+        tips_button.setOnClickListener{
+            TransitionManager.beginDelayedTransition(tips)
+            initSensor()
+            tips.visibility = View.GONE
+        }
     }
 
+    private lateinit var mySensorManager: SensorManager
+    private var myProximitySensor: Sensor? = null
     private fun initSensor(){
         mySensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         myProximitySensor = mySensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
@@ -73,9 +76,7 @@ class StepsActivity() : AppCompatActivity(), StepFragment.Listener, Parcelable {
     private fun goNext(){
         if (steps_fragments.currentItem < mSteps.size - 1) {
             steps_fragments.currentItem = steps_fragments.currentItem + 1
-        } else {
-            goToDetail(true)
-        }
+        } else { goToDetail(true) }
         progress(steps_fragments.currentItem)
 
     }
@@ -87,9 +88,10 @@ class StepsActivity() : AppCompatActivity(), StepFragment.Listener, Parcelable {
     }
 
 
+    private var isLocked : Boolean = false
     private fun initLockButton(){
-        isLocked != isLocked
         lock_button.setOnClickListener{
+            isLocked != isLocked
             if(isLocked){
                 window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
             }else{
@@ -105,8 +107,16 @@ class StepsActivity() : AppCompatActivity(), StepFragment.Listener, Parcelable {
         steps_progress_text.text = "%.0f".format(progress) + " %"
 
         var textColor = R.color.grayDark
-        if(progress.toInt() > 50){ textColor = R.color.grayLighter }
+        if(progress.toInt() > 44){ textColor = R.color.grayLighter }
         steps_progress_text.setTextColor(resources.getColor(textColor))
+    }
+
+    private fun initFragmentSwipeListener(){
+        steps_fragments.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageSelected(position: Int) { progress(steps_fragments.currentItem)}
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+            override fun onPageScrollStateChanged(state: Int) {}
+        })
     }
 
     /**
@@ -120,11 +130,9 @@ class StepsActivity() : AppCompatActivity(), StepFragment.Listener, Parcelable {
     }
 
     /**
-     * Init images by callback
+     * Init progress bar
      */
-    override fun fragmentStepInit(image: String) {
-        progress(steps_fragments.currentItem)
-    }
+    override fun fragmentStepInit(image: String) { progress(steps_fragments.currentItem) }
 
     //Page Adapter to swipe between Fragments
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
@@ -133,6 +141,13 @@ class StepsActivity() : AppCompatActivity(), StepFragment.Listener, Parcelable {
     }
 
     //SENSOR
+    private var FIRST : Boolean = false
+    private var SECOND : Boolean = false
+    private var timeStamp: Long = Date().getTime();
+    private var oldSensorValue: Float = 0.0f
+    private var currentRunnable: Runnable? = null
+    private var currentTimeStamp = 0L
+    private var currentTimeStamp2 = 0L
 
     internal var proximitySensorEventListener: SensorEventListener = object : SensorEventListener {
 
@@ -140,33 +155,37 @@ class StepsActivity() : AppCompatActivity(), StepFragment.Listener, Parcelable {
 
         override fun onSensorChanged(event: SensorEvent) {
             if (event.sensor.type == Sensor.TYPE_PROXIMITY) {
-                Log.d("Event",event.values[0].toString())
+                Log.d("Sensor",event.values[0].toString())
                 if (event.values[0] <= 10 && event.values[0] != oldSensorValue.toFloat()) {
+                    if(FIRST === false && SECOND === false){
+                        FIRST = true
+                    }else if( FIRST === true && SECOND === false ) {
+                        SECOND = true
+                    }else{
+                        if (event.values[0] != 0.0f) { oldSensorValue = event.values[0] }
+                        if (currentTimeStamp != 0L) { currentTimeStamp2 = Date().time }
 
-                    if (event.values[0] != 0.0f) { oldSensorValue = event.values[0] }
-                    if (currentTimeStamp != 0L) { currentTimeStamp2 = Date().time }
-
-                    currentTimeStamp = Date().time
+                        currentTimeStamp = Date().time
 
 
-                    if(currentRunnable ===  null) {
-                        currentRunnable = Runnable {
-                            runOnUiThread {
-                                if ((currentTimeStamp2 - currentTimeStamp) <= 1000 && currentTimeStamp2 != 0L) {
-                                    goPrevious()
-                                } else {
-                                    goNext()
+                        if(currentRunnable ===  null) {
+                            currentRunnable = Runnable {
+                                runOnUiThread {
+                                    if ((currentTimeStamp2 - currentTimeStamp) <= 1000 && currentTimeStamp2 != 0L) {
+                                        goPrevious()
+                                    } else {
+                                        goNext()
+                                    }
+
+                                    currentRunnable = null
+                                    currentTimeStamp = 0L
+                                    currentTimeStamp2 = 0L
                                 }
-
-                                currentRunnable = null
-                                currentTimeStamp = 0L
-                                currentTimeStamp2 = 0L
                             }
+                            Handler().postDelayed(currentRunnable, 1500)
                         }
-                        Handler().postDelayed(currentRunnable, 1500)
                     }
                 }
-
             }
         }
 
@@ -182,9 +201,7 @@ class StepsActivity() : AppCompatActivity(), StepFragment.Listener, Parcelable {
         parcel.writeFloat(oldSensorValue)
     }
 
-    override fun describeContents(): Int {
-        return 0
-    }
+    override fun describeContents(): Int { return 0 }
 
     companion object CREATOR : Parcelable.Creator<StepsActivity> {
 
@@ -195,12 +212,9 @@ class StepsActivity() : AppCompatActivity(), StepFragment.Listener, Parcelable {
             intent.putExtra(COCKTAIL, cocktail as Serializable)
             return intent
         }
-        override fun createFromParcel(parcel: Parcel): StepsActivity {
-            return StepsActivity(parcel)
-        }
 
-        override fun newArray(size: Int): Array<StepsActivity?> {
-            return arrayOfNulls(size)
-        }
+        override fun createFromParcel(parcel: Parcel): StepsActivity { return StepsActivity(parcel) }
+
+        override fun newArray(size: Int): Array<StepsActivity?> { return arrayOfNulls(size) }
     }
 }

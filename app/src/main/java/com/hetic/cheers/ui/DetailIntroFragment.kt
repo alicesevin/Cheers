@@ -51,7 +51,6 @@ class DetailIntroFragment : Fragment() {
 
         mItem = arguments?.getSerializable(COCKTAIL) as CocktailDetail
         if(mItem != null){
-            Log.d("CONTENU DETAIL",mItem.toString())
             loadContent(view)
             //Actions
             val start_button = view.findViewById<Button>(R.id.start_button)

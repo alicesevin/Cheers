@@ -25,9 +25,6 @@ class TagAdapter(val listener: (Tag) -> Unit) : RecyclerView.Adapter<TagAdapter.
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        /**
-         * Populate view with datas
-         */
         fun bind(item: Tag, listener: (Tag) -> Unit) = with(itemView) {
             name.text = item.name
             name.textOn = item.name

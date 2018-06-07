@@ -70,12 +70,10 @@ class ResultsActivity() : Activity() {
         data.enqueue(object : Callback<ArrayList<Cocktail>> {
             override fun onResponse(call: Call<ArrayList<Cocktail>>?, response: Response<ArrayList<Cocktail>>?) {
                 response?.body()?.let { source ->
-                    if(source != null){
-                        mAdapter.swapItems(source)
-                        mAdapter.notifyDataSetChanged()
-                        mItems = source
-                        removeLoader()
-                    }
+                    mAdapter.swapItems(source)
+                    mAdapter.notifyDataSetChanged()
+                    mItems = source
+                    removeLoader()
                 }
             }
 
