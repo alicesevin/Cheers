@@ -50,10 +50,7 @@ dependencies {
     implementation "com.android.support:design:${supportLibVersion}"
 
     //Design/Image
-    implementation "com.android.support:palette-v7:${supportLibVersion}"
-    implementation 'tk.zielony:carbon:0.15.0.1'
     implementation 'com.github.bumptech.glide:glide:4.7.1'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
@@ -70,6 +67,5 @@ dependencies {
     compileOnly 'org.glassfish:javax.annotation:10.0-b28'
 
     //Animation
-    implementation "com.andkulikov:transitionseverywhere:1.7.9"
     implementation 'com.airbnb.android:lottie:2.5.4'
 }
