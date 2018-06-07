@@ -1,0 +1,354 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <!-- =============================================================== -->
+    <!-- Custom style -->
+    <!-- =============================================================== -->
+
+
+    <!-- THEME -->
+
+    <style name="CocktailTheme" parent="Theme.AppCompat.Light">
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/grayLighter</item>
+        <item name="colorPrimaryDark">@color/grayDark</item>
+        <item name="colorAccent">@color/primaryLight</item>
+        <item name="android:textColorPrimary">@color/grayDark</item>
+        <item name="android:statusBarColor">@color/grayDark</item>
+        <item name="android:navigationBarColor">@color/grayDark</item>
+        <item name="android:textColorPrimaryInverse">@color/grayLight</item>
+        <item name="android:textColorSecondary">@color/gray</item>
+        <item name="android:textColorSecondaryInverse">@color/grayLighter</item>
+        <item name="android:windowBackground">@color/grayLighter</item>
+        <item name="android:colorBackground">@color/grayLighter</item>
+        <item name="android:colorForeground">@color/grayDark</item>
+
+        <item name="android:buttonStyle">@style/btnStyle</item>
+        <item name="android:textAppearance">@style/textStyle</item>
+        <item name="android:radioButtonStyle">@style/radioBtnStyle</item>
+        <item name="android:progressBarStyleHorizontal">@style/progressBar</item>
+    </style>
+
+    <style name="progressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_bar</item>
+    </style>
+
+    <style name="textProgress" parent="textStyle">
+        <item name="android:textSize">6sp</item>
+        <item name="android:textColor">@color/grayDark</item>
+        <item name="android:fontFamily">@font/avenir_heavy</item>
+    </style>
+
+    <style name="divider" parent="CocktailTheme">
+        <item name="android:background">@color/dividerBg</item>
+        <item name="android:layout_marginTop">@dimen/padding_md</item>
+        <item name="android:layout_marginBottom">@dimen/padding_sm</item>
+    </style>
+
+    <style name="textStyle" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/textFs</item>
+        <item name="android:textColor">@color/grayMedium</item>
+        <item name="android:fontFamily">@font/avenir_light</item>
+    </style>
+
+    <!-- TITLE -->
+    <style name="titleStyle" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/titleFs</item>
+        <item name="android:textColor">@color/grayDark</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/avenir_heavy</item>
+    </style>
+
+    <style name="titleWhite" parent="titleStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/grayLighter</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="subtitleStyle" parent="titleStyle">
+        <item name="android:textSize">@dimen/subtitleFs</item>
+    </style>
+
+    <!-- CARDS -->
+
+    <style name="cardHTitle" parent="titleStyle">
+        <item name="android:textSize">@dimen/cardHTitleFS</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+
+    <style name="cardVTitle" parent="titleStyle">
+        <item name="android:textSize">@dimen/cardVTitleFS</item>
+        <item name="android:layout_marginTop">0dp</item>
+    </style>
+
+    <style name="cardTag" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/cardTagFS</item>
+        <item name="android:textColor">@color/grayLight</item>
+        <item name="android:letterSpacing">0.05</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@drawable/tag_border</item>
+        <item name="android:layout_marginRight">@dimen/padding_xs</item>
+        <item name="android:fontFamily">avenir_black</item>
+    </style>
+
+    <style name="cardWhiteTag" parent="cardTag">
+        <item name="android:textColor">@color/grayLighter</item>
+        <item name="android:background">@drawable/tag_border_white</item>
+    </style>
+
+    <style name="cardRatingText" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/cardRatingTextFS</item>
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:layout_marginLeft">@dimen/padding_x</item>
+    </style>
+
+    <style name="cardHStyle" parent="CardView">
+        <item name="cardCornerRadius">@dimen/cardRadius</item>
+        <item name="cardElevation">@dimen/cardElevation</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="cardPreventCornerOverlap">true</item>
+        <item name="cardBackgroundColor">@color/grayLight</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="cardHContainer" parent="@android:style/TextAppearance">
+        <item name="android:paddingTop">@dimen/cardPaddingTop</item>
+        <item name="android:paddingBottom">@dimen/cardPaddingBottom</item>
+        <item name="android:paddingHorizontal">@dimen/cardPaddingHorizontal</item>
+        <item name="android:background">@color/grayLighter</item>
+    </style>
+
+    <style name="cardHSize" parent="CocktailTheme">
+        <item name="android:layout_width">@dimen/cardWidth</item>
+        <item name="android:layout_height">@dimen/cardHeight</item>
+    </style>
+
+    <!-- DETAIL -->
+    <style name="detailCardTitle" parent="titleStyle">
+        <item name="android:textSize">@dimen/detailCardTitleFs</item>
+        <item name="android:textColor">@color/grayLighter</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:fontFamily">@font/avenir_heavy</item>
+    </style>
+
+    <style name="cardDetailStyle" parent="CardView">
+        <item name="android:background">@drawable/card_rounded</item>
+        <item name="android:layout_marginBottom">@dimen/padding_md</item>
+        <item name="android:layout_marginHorizontal">@dimen/padding_sm</item>
+        <item name="android:paddingVertical">@dimen/padding_s</item>
+        <item name="android:paddingHorizontal">@dimen/padding_sm</item>
+    </style>
+
+    <style name="cardDetailRatingText" parent="textStyle">
+        <item name="android:textSize">@dimen/detailCardRatingFs</item>
+        <item name="android:textColor">@color/grayDark</item>
+        <item name="android:fontFamily">@font/avenir_heavy</item>
+        <item name="android:layout_marginTop">@dimen/padding_x</item>
+    </style>
+
+
+    <style name="detailText" parent="textStyle">
+        <item name="android:textAlignment">center</item>
+        <item name="android:lineSpacingExtra">@dimen/detailTextLH</item>
+    </style>
+    <!-- TAGS -->
+    <style name="tagStyle" parent="@android:style/Widget.Material.Light.Button.Toggle">
+        <item name="android:background">@drawable/toggle_bg</item>
+        <item name="android:textColor">@drawable/toggle_color</item>
+        <item name="android:textSize">@dimen/tagFs</item>
+        <item name="android:layout_marginHorizontal">@dimen/padding_xs</item>
+        <item name="android:fontFamily">@font/avenir_heavy</item>
+    </style>
+
+    <!-- BUTTONS -->
+
+    <style name="btnStyle" parent="android:style/Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/btnFs</item>
+        <item name="android:background">@drawable/btn_rounded</item>
+        <item name="android:textColor">@color/grayLighter</item>
+        <item name="android:paddingVertical">@dimen/padding_xs</item>
+        <item name="android:paddingHorizontal">@dimen/padding_sm</item>
+        <item name="android:minHeight">@dimen/btnHeight</item>
+        <item name="android:fontFamily">@font/avenir_heavy</item>
+    </style>
+
+    <style name="btnStart" parent="btnStyle">
+        <item name="android:drawableRight">@drawable/ic_play</item>
+        <item name="android:drawablePadding">@dimen/padding_x</item>
+        <item name="android:button">@android:color/transparent</item>
+    </style>
+
+    <style name="radioBtnStyle" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:background">@drawable/btn_shake_2</item>
+        <item name="android:button">@android:color/transparent</item>
+    </style>
+
+    <style name="shake1radioBtn" parent="radioBtnStyle">
+        <item name="android:background">@drawable/btn_shake_1</item>
+        <item name="android:checked">true</item>
+    </style>
+
+    <style name="shake3radioBtn" parent="radioBtnStyle">
+        <item name="android:background">@drawable/btn_shake_3</item>
+    </style>
+
+    <style name="filtersBtn" parent="CocktailTheme">
+        <item name="android:background">@mipmap/filters</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="dotsBtn" parent="btnStyle">
+        <item name="android:background">@drawable/ic_filters</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="android:minWidth">24dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <!-- AUTOCOMPLETE -->
+
+    <style name="autocompleteStyle" parent="Widget.AppCompat.Light.AutoCompleteTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:hint">@string/search</item>
+        <item name="android:minHeight">@dimen/btnHeight</item>
+        <item name="android:textSize">@dimen/inputFs</item>
+        <item name="android:background">@drawable/input_bg</item>
+        <item name="android:layout_marginTop">@dimen/padding_xs</item>
+        <item name="android:fontFamily">@font/avenir_light</item>
+    </style>
+
+    <!-- NAV BUTTONS -->
+
+    <style name="linkLeft" parent="btnStyle">
+        <item name="android:textSize">@dimen/navBtnFs</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:drawableLeft">@drawable/ic_arrow_back_white</item>
+        <item name="android:drawablePadding">@dimen/padding_xs</item>
+    </style>
+
+    <style name="linkWhite" parent="btnStyle">
+        <item name="android:textSize">@dimen/navBtnFs</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:drawablePadding">@dimen/padding_xs</item>
+    </style>
+
+    <style name="linkRight" parent="btnStyle">
+        <item name="android:textSize">@dimen/navBtnFs</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:drawableRight">@drawable/ic_arrow_forward_white</item>
+        <item name="android:drawablePadding">@dimen/padding_xs</item>
+        <item name="android:fontFamily">@font/avenir_heavy</item>
+    </style>
+
+    <style name="linkText" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/navTextFs</item>
+    </style>
+
+    <!-- RATING -->
+
+    <style name="starRatingStyle" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/star_rating_custom_bar</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:minHeight">@dimen/icon_s</item>
+        <item name="android:maxHeight">@dimen/icon_s</item>
+        <item name="android:numStars">5</item>
+        <item name="android:rating">0</item>
+        <item name="android:stepSize">0.5</item>
+    </style>
+
+    <style name="starMRatingStyle" parent="starRatingStyle">
+        <item name="android:progressDrawable">@drawable/star_rating_m_custom_bar</item>
+        <item name="android:minHeight">@dimen/icon_m</item>
+        <item name="android:maxHeight">@dimen/icon_m</item>
+    </style>
+
+    <style name="starLRatingStyle" parent="starMRatingStyle">
+        <item name="android:progressDrawable">@drawable/star_rating_l_custom_bar</item>
+    </style>
+
+    <style name="starSmallRatingStyle" parent="starRatingStyle">
+        <item name="android:isIndicator">true</item>
+        <item name="android:numStars">1</item>
+        <item name="android:rating">1</item>
+    </style>
+
+    <style name="timeRatingStyle" parent="starRatingStyle">
+        <item name="android:progressDrawable">@drawable/time_rating_custom_bar</item>
+        <item name="android:numStars">3</item>
+        <item name="android:minHeight">@dimen/icon_time_s</item>
+        <item name="android:maxHeight">@dimen/icon_time_s</item>
+    </style>
+
+    <style name="timeRatingMStyle" parent="starMRatingStyle">
+        <item name="android:progressDrawable">@drawable/time_rating_m_custom_bar</item>
+        <item name="android:numStars">3</item>
+        <item name="android:minHeight">@dimen/icon_time_m</item>
+        <item name="android:maxHeight">@dimen/icon_time_m</item>
+    </style>
+
+    <style name="shakeRatingStyle" parent="timeRatingStyle">
+        <item name="android:minHeight">@dimen/icon_shake_s</item>
+        <item name="android:maxHeight">@dimen/icon_shake_s</item>
+        <item name="android:progressDrawable">@drawable/shake_rating_custom_bar</item>
+    </style>
+
+    <style name="shakeRatingMStyle" parent="timeRatingMStyle">
+        <item name="android:progressDrawable">@drawable/shake_rating_m_custom_bar</item>
+        <item name="android:minHeight">@dimen/icon_shake_m</item>
+        <item name="android:maxHeight">@dimen/icon_shake_m</item>
+    </style>
+
+    <style name="moneyRatingStyle" parent="timeRatingStyle">
+        <item name="android:progressDrawable">@drawable/money_rating_custom_bar</item>
+        <item name="android:minHeight">@dimen/icon_money_s</item>
+        <item name="android:maxHeight">@dimen/icon_money_s</item>
+    </style>
+
+    <style name="moneyRatingMStyle" parent="timeRatingMStyle">
+        <item name="android:progressDrawable">@drawable/money_rating_m_custom_bar</item>
+        <item name="android:minHeight">@dimen/icon_money_m</item>
+        <item name="android:maxHeight">@dimen/icon_money_m</item>
+    </style>
+
+    <style name="ingredientStyle" parent="textStyle">
+        <item name="android:drawableLeft">@drawable/ic_dot</item>
+        <item name="android:drawablePadding">@dimen/padding_xs</item>
+        <item name="android:textColor">@color/grayDark</item>
+        <item name="android:paddingBottom">@dimen/padding_x</item>
+    </style>
+    <!-- BARS -->
+
+    <style name="CocktailTheme.AppBarOverlay" parent="CocktailTheme">
+        <item name="android:textColorPrimary">@color/grayDark</item>
+        <item name="android:textColorSecondary">@color/grayLighter</item>
+        <item name="android:colorBackground">@color/grayDark</item>
+        <item name="android:background">@color/grayDark</item>
+    </style>
+
+    <style name="CocktailTheme.PopupOverlay" parent="CocktailTheme">
+        <item name="android:colorBackground">@color/grayDark</item>
+        <item name="android:textColor">@color/grayLighter</item>
+    </style>
+
+</resources>

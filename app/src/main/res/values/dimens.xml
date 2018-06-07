@@ -1,0 +1,92 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_height">80dp</dimen>
+    <dimen name="nav_header_vertical_spacing">40dp</dimen>
+
+    <!-- =============================================================== -->
+    <!-- Custom style -->
+    <!-- =============================================================== -->
+
+    <!-- MARGIN -->
+    <dimen name="icon_s">13dp</dimen>
+    <dimen name="icon_m">16dp</dimen>
+    <dimen name="icon_time_s">10dp</dimen>
+    <dimen name="icon_time_m">18dp</dimen>
+    <dimen name="icon_money_s">10dp</dimen>
+    <dimen name="icon_money_m">16dp</dimen>
+    <dimen name="icon_shake_s">10dp</dimen>
+    <dimen name="icon_shake_m">20dp</dimen>
+
+    <!-- MARGIN -->
+    <dimen name="margin_xs">16dp</dimen>
+    <dimen name="margin_sm">32dp</dimen>
+
+    <!-- PADDING -->
+    <dimen name="padding_xxs">2dp</dimen>
+    <dimen name="padding_x">5dp</dimen>
+    <dimen name="padding_xs">10dp</dimen>
+    <dimen name="padding_s">15dp</dimen>
+    <dimen name="padding_sm">20dp</dimen>
+    <dimen name="padding_m">25dp</dimen>
+    <dimen name="padding_md">30dp</dimen>
+    <dimen name="padding_l">35dp</dimen>
+    <dimen name="padding_xl">40dp</dimen>
+    <dimen name="padding_xxl">45dp</dimen>
+    <dimen name="padding_xxxl">50dp</dimen>
+
+    <!-- TITLE -->
+    <dimen name="titleFs">24sp</dimen>
+    <dimen name="subtitleFs">18sp</dimen>
+
+    <!-- TEXT -->
+    <dimen name="textFs">14sp</dimen>
+
+    <!-- CARDS -->
+    <dimen name="cardPaddingTop">@dimen/padding_s</dimen>
+    <dimen name="cardPaddingBottom">@dimen/padding_xs</dimen>
+    <dimen name="cardPaddingHorizontal">@dimen/padding_s</dimen>
+    <dimen name="cardWidth">275dp</dimen>
+    <dimen name="cardHeight">261dp</dimen>
+    <dimen name="cardRadius">8dp</dimen>
+    <dimen name="cardElevation">1dp</dimen>
+    <dimen name="cardHTitleFS">16sp</dimen>
+    <dimen name="cardMargin">@dimen/padding_xs</dimen>
+    <dimen name="cardVTitleFS">25sp</dimen>
+    <dimen name="cardTagFS">8sp</dimen>
+    <dimen name="cardRatingTextFS">12sp</dimen>
+
+    <!-- DETAIL -->
+    <dimen name="detailCardTitleFs">32sp</dimen>
+    <dimen name="detailCardRatingFs">10sp</dimen>
+    <dimen name="app_bar_height">395dp</dimen>
+    <dimen name="detailText">14dp</dimen>
+    <dimen name="detailTextLH">5dp</dimen>
+
+    <!-- TAGS -->
+    <dimen name="tagFs">16sp</dimen>
+    <dimen name="tagBorder">1dp</dimen>
+    <dimen name="tagRadius">4dp</dimen>
+    <dimen name="tagHeight">70dp</dimen>
+
+    <!-- BUTTONS -->
+    <dimen name="btnRadius">8dp</dimen>
+    <dimen name="btnFs">14sp</dimen>
+    <dimen name="btnHeight">43dp</dimen>
+    <dimen name="btnGradientAngle">135</dimen>
+    <dimen name="dot">10dp</dimen>
+
+    <!-- INPUT -->
+    <dimen name="inputFs">14sp</dimen>
+
+    <!-- NAV BUTTONS -->
+    <dimen name="navTextFs">25sp</dimen>
+    <dimen name="navBtnFs">14sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+
+</resources>

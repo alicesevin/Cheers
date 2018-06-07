@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/filters_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/grayLighter"
+    android:paddingHorizontal="@dimen/padding_sm"
+    android:paddingBottom="@dimen/padding_sm"
+    android:focusable="true"
+    android:clickable="true">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/filter_difficulty_rate_title"
+        android:textAlignment="center"
+        style="@style/subtitleStyle"
+        android:layout_marginVertical="@dimen/padding_xs"/>
+
+
+    <RadioGroup
+        android:id="@+id/difficulty_filter"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/difficulty_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/shake1radioBtn"/>
+
+        <RadioButton
+            android:id="@+id/difficulty_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/difficulty_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/shake3radioBtn" />
+
+    </RadioGroup>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/filter_time_rate_title"
+        android:textAlignment="center"
+        style="@style/subtitleStyle"
+        android:layout_marginVertical="@dimen/padding_xs"/>
+
+    <RadioGroup
+        android:id="@+id/time_filter"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/time_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/shake1radioBtn"/>
+
+        <RadioButton
+            android:id="@+id/time_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/time_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/shake3radioBtn" />
+
+    </RadioGroup>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/filter_price_rate_title"
+        android:textAlignment="center"
+        style="@style/subtitleStyle"
+        android:layout_marginVertical="@dimen/padding_xs"/>
+
+
+    <RadioGroup
+        android:id="@+id/price_filter"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/price_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="@dimen/padding_sm"
+            android:checked="true"
+            style="@style/shake1radioBtn"/>
+
+        <RadioButton
+            android:id="@+id/price_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/price_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/shake3radioBtn"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/filter_global_rate_title"
+        android:textAlignment="center"
+        style="@style/subtitleStyle"
+        android:layout_marginVertical="@dimen/padding_xs"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RatingBar
+            android:id="@+id/global_rate_filter"
+            style="@style/starLRatingStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="false"/>
+
+    </LinearLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/valid_text"
+        android:id="@+id/valid_filters"
+        android:layout_marginTop="@dimen/padding_md"/>
+
+</LinearLayout>

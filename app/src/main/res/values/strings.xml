@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Cheers</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tabs">TabsActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="appname">Trouvez votre boisson\nidéale</string>
+    <string name="search">Rechercher un cockail</string>
+    <string name="recommand">Recommandations</string>
+    <string name="advanced_search">Recherche personnalisée</string>
+    <string name="ingredients_title">Ingrédients</string>
+    <string name="advanced_search_text">Testez notre recherche personnalisée pour\n trouver le cocktail parfait selon vos envies !</string>
+    <string name="advanced_search_page_text">Je recherche un cocktail :</string>
+    <string name="title_activity_advanced_search">AdvancedSearchActivity</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_results">ResultsActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start">Commencer</string>
+    <string name="end_recipe">Vous avez terminé cette recette !</string>
+    <string name="search_text">Rechercher</string>
+    <string name="go_home_text">Retour à l\'accueil</string>
+    <string name="go_detail_btn">Retour à la fiche produit</string>
+    <string name="restart">Recommencer</string>
+    <string name="rate_text">Noter la recette</string>
+    <string name="back">Précédent</string>
+    <string name="back_act">Retour</string>
+    <string name="next">Suivant</string>
+    <string name="filters_text">Filtres</string>
+    <string name="results_text">Résultats</string>
+    <string name="valid_text">Valider</string>
+    <string name="filter_global_rate_title">Note globale</string>
+    <string name="filter_price_rate_title">Prix du cocktail</string>
+    <string name="filter_time_rate_title">Temps nécessaire</string>
+    <string name="filter_difficulty_rate_title">Difficulté de la recette</string>
+    <string name="destroy">Annuler</string>
+
+    <string-array name="tag_types">
+        <item>ingredients</item>
+        <item>context</item>
+        <item>alcool</item>
+        <item>caracteristique</item>
+    </string-array>
+    <string-array name="slide_titles">
+        <item>Avec les ingrédients : </item>
+        <item>Dans le cadre de : </item>
+        <item>Je recherche un cocktail à base de : </item>
+        <item>De type : </item>
+    </string-array>
+    <string name="voted">Merci d\'avoir voté.</string>
+</resources>

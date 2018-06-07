@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- =============================================================== -->
+    <!-- Custom style -->
+    <!-- =============================================================== -->
+
+    <color name="primaryDark">#FF586A</color>
+    <color name="primaryMedium">#FF7E7E</color>
+    <color name="primary">#FF7245</color>
+    <color name="primaryLight">#FFC57C</color>
+    <color name="primaryLighter">#FFB6B6</color>
+    <color name="grayLighter">#FFF</color>
+    <color name="grayLight">#CECECE</color>
+    <color name="gray">#B1B1B1</color>
+    <color name="grayMedium">#999999</color>
+    <color name="grayDark">#232323</color>
+    <color name="inputBg">#F7F7F7</color>
+    <color name="dividerBg">#EEEEEE</color>
+</resources>
