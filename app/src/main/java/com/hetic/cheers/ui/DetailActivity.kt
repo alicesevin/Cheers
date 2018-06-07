@@ -67,10 +67,10 @@ class DetailActivity : AppCompatActivity(),
 
         val id = intent.getIntExtra(COCKTAIL_KEY, 0)
         loadById(id)
-        back_button.setOnClickListener{ this.onBackPressed() }
+        back_button.setOnClickListener{ finish() }
     }
 
-    private fun goToHome(){ super.onBackPressed() }
+    private fun goToHome(){ finish() }
 
     private fun goToSteps(){
         val intent = StepsActivity.getIntent(this,mItem)
