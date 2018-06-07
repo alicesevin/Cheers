@@ -10,20 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="@dimen/padding_sm"
+        android:paddingVertical="@dimen/padding_xs"
+        android:paddingHorizontal="@dimen/padding_xs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ToggleButton
             android:id="@+id/name"
-            style="@style/tagStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:clipToPadding="false" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

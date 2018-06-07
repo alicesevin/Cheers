@@ -74,6 +74,7 @@ class ResultsActivity() : Activity() {
                     mAdapter.notifyDataSetChanged()
                     mItems = source
                     removeLoader()
+                    toggleEmpty(mItems)
                 }
             }
 
@@ -97,13 +98,14 @@ class ResultsActivity() : Activity() {
 
                 //Filter recycler view with RadioGroup values
                 val filter = Filter(
-                        getRadioVal(time_filter),
-                        getRadioVal(price_filter),
+                        getRadioVal(time_filter) ,
+                        getRadioVal(price_filter)  ,
                         getRadioVal(difficulty_filter),
                         global_rate_filter.rating)
                 filterItems(mItems, filter)
             }
         }
+        back_button.setOnClickListener{ this.onBackPressed() }
 
     }
 
@@ -117,7 +119,7 @@ class ResultsActivity() : Activity() {
     fun getRadioVal(ele : RadioGroup) : Int {
         val active = ele.getCheckedRadioButtonId()
         val btn = ele.findViewById<RadioButton>(active)
-        return ele.indexOfChild(btn)
+        return ele.indexOfChild(btn) + 1
     }
 
     private fun getLoaderDuration() = 2000L
@@ -126,23 +128,35 @@ class ResultsActivity() : Activity() {
         Handler().postDelayed({ loader.visibility = View.GONE }, loaderDuration)
     }
 
+    fun toggleEmpty(items : List<Any>){ empty.visibility = if(items.size == 0){ View.VISIBLE }else{ View.GONE } }
+
     fun filterItems(mItems : List<Cocktail>, filter : Filter){
         loader.visibility = View.VISIBLE
         Log.d("Filtre",filter.getString())
 
         //Filter by Rate
-        var filteredList = mItems.filter { i -> i.getRating().toInt() == filter.global_rate_filter.toInt() }
+        var filteredList =  mItems
+        if(filter.global_rate_filter.toInt() > 0){
+            filteredList = filteredList.filter { i -> i.getRating().toInt() == filter.global_rate_filter.toInt() }
+        }
         //Filter by time
-        filteredList = filteredList.filter { i -> i.getTimeRating().toInt() ==  filter.time_rate_filter }
+        if(filter.time_rate_filter > 0) {
+            filteredList = filteredList.filter { i -> i.speedRate == filter.time_rate_filter }
+        }
         //Filter by difficulty
-        filteredList = filteredList.filter { i -> i.getDifficultyRating().toInt() ==  filter.difficulty_rate_filter }
+        if(filter.difficulty_rate_filter > 0) {
+            filteredList = filteredList.filter { i -> i.difficultyRate == filter.difficulty_rate_filter }
+        }
         //Filter by price
-        filteredList = filteredList.filter { i -> i.getPriceRating().toInt() ==  filter.price_rate_filter }
-
+        if(filter.price_rate_filter > 0) {
+            filteredList = filteredList.filter { i -> i.PriceRate == filter.price_rate_filter }
+        }
         Log.d("ITEMS FILTERED ("+ filteredList.size + ") : ",filteredList.toString())
+        Log.d("ITEMS ("+ mItems.size + ") : ",mItems.toString())
 
         mAdapter.swapItems(filteredList)
         mAdapter.notifyDataSetChanged()
         removeLoader()
+        toggleEmpty(filteredList)
     }
 }

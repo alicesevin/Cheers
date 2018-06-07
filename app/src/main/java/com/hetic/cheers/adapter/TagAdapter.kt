@@ -2,6 +2,7 @@ package com.hetic.cheers.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ToggleButton
@@ -29,7 +30,8 @@ class TagAdapter(val listener: (Tag) -> Unit) : RecyclerView.Adapter<TagAdapter.
             name.text = item.name
             name.textOn = item.name
             name.textOff = item.name
-            name.setOnCheckedChangeListener { _, isChecked -> listener(item) } //Should send item to fragment on checkbox event
+            if(item.checkFs()){ name.setTextSize(TypedValue.COMPLEX_UNIT_SP,14f) }
+            name.setOnCheckedChangeListener { _, _ -> listener(item) } //Should send item to fragment on checkbox event
         }
     }
 }

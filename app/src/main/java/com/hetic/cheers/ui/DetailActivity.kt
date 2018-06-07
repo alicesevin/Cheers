@@ -70,11 +70,7 @@ class DetailActivity : AppCompatActivity(),
         back_button.setOnClickListener{ this.onBackPressed() }
     }
 
-    private fun goToHome(){
-        val intent = MainActivity.getIntent(this)
-        startActivityForResult(intent,1000)
-        finish()
-    }
+    private fun goToHome(){ super.onBackPressed() }
 
     private fun goToSteps(){
         val intent = StepsActivity.getIntent(this,mItem)

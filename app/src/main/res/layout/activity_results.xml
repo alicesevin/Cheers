@@ -21,17 +21,19 @@ tools:context=".ui.ResultsActivity">
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
-                android:text="@string/filters_text"
-                style="@style/subtitleStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+
+        <Button
+            android:id="@+id/back_button"
+            style="@style/linkLeftBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/back_act"
+            android:padding="@dimen/padding_xs"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-
-            <ImageButton
+            <Button
                 android:id="@+id/show_filters"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,8 +48,8 @@ tools:context=".ui.ResultsActivity">
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            style="@style/divider"
-            android:layout_marginTop="@dimen/padding_xs"/>
+            android:layout_marginTop="0dp"
+            style="@style/divider"/>
 
     </LinearLayout>
 
@@ -83,9 +85,11 @@ tools:context=".ui.ResultsActivity">
             android:paddingHorizontal="@dimen/padding_sm" />
 
         <LinearLayout
+            android:id="@+id/empty"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:paddingHorizontal="@dimen/padding_md"
             android:paddingVertical="@dimen/padding_md">
 

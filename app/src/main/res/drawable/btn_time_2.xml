@@ -1,14 +1,14 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
     <item
-        android:drawable="@mipmap/button_filter_cocktail_3_color"
+        android:drawable="@mipmap/button_filter_time_2_color"
         android:state_checked="true"
         android:state_pressed="true" />
     <item
-        android:drawable="@mipmap/button_filter_cocktail_3_color"
+        android:drawable="@mipmap/button_filter_time_2_color"
         android:state_pressed="true" />
     <item
-        android:drawable="@mipmap/button_filter_cocktail_3_color"
+        android:drawable="@mipmap/button_filter_time_2_color"
         android:state_checked="true" />
     <item
-        android:drawable="@mipmap/button_filter_cocktail_3_grey" />
+        android:drawable="@mipmap/button_filter_time_2_grey" />
 </selector>

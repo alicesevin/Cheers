@@ -64,6 +64,7 @@
 
     <!-- TAGS -->
     <dimen name="tagFs">16sp</dimen>
+    <dimen name="tagFs_s">14sp</dimen>
     <dimen name="tagBorder">1dp</dimen>
     <dimen name="tagRadius">4dp</dimen>
     <dimen name="tagHeight">70dp</dimen>

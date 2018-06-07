@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.support.v4.app.FragmentPagerAdapter
 import android.util.Log
 import com.hetic.cheers.R
@@ -62,28 +63,27 @@ class AdvancedSearchActivity : AppCompatActivity(), AdvancedSearchFragment.Liste
         initNextButton()
         initFragmentSwipeListener()
         initDots()
-
     }
 
     /**
      * Generate Dots buttons
      */
     private fun initDots(){
+        slide_dots.removeAllViews()
         for(indice in mSections.size downTo 1 step 1){
             val dot = Button(this)
             val lp = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
             lp.rightMargin = resources.getDimensionPixelSize(R.dimen.padding_xs)
             lp.leftMargin = resources.getDimensionPixelSize(R.dimen.padding_xs)
             dot.layoutParams = lp
-            dot.setBackgroundResource(R.drawable.dot)
+            dot.setBackgroundResource(R.mipmap.dot_white_inactive)
             dot.setPadding(0,0,0,0)
             dot.height = resources.getDimensionPixelSize(R.dimen.dot)
             dot.width = resources.getDimensionPixelSize(R.dimen.dot)
-            dot.minHeight = resources.getDimensionPixelSize(R.dimen.dot)
-            dot.minWidth = resources.getDimensionPixelSize(R.dimen.dot)
+            dot.id = indice
+            if(container.currentItem == indice - 1){ dot.setBackgroundResource(R.mipmap.dot_white_active) }
             dot.setOnClickListener{
                 container.currentItem = indice - 1
-                setButtonText(indice - 1)
             }
             slide_dots.addView(dot,0)
         }
@@ -129,10 +129,15 @@ class AdvancedSearchActivity : AppCompatActivity(), AdvancedSearchFragment.Liste
                 mSections.map { i -> tags.setActivated(i.type,i.activatedTags) }
                 val resultsIntent = ResultsActivity.getIntent(this,tags)
                 startActivity(resultsIntent)
+                goFirst()
             }
         }
     }
-
+    private fun getIssueDuration() = 1000L
+    private fun goFirst() {
+        val getIssueDuration = getIssueDuration()
+        Handler().postDelayed({container.currentItem = 0}, getIssueDuration)
+    }
     /**
      * Events during fragment swipe
      */
@@ -148,6 +153,7 @@ class AdvancedSearchActivity : AppCompatActivity(), AdvancedSearchFragment.Liste
      * Set button title depending on Slide index
      */
     private fun setButtonText(position : Int){
+        initDots()
         previous_button.text = resources.getString(if(position == 0){R.string.destroy}else{R.string.back})
         back_button.text = resources.getString(if(position == (mSections.size - 1)){R.string.valid_text}else{R.string.next})
     }

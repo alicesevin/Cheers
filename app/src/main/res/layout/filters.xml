@@ -71,20 +71,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            style="@style/shake1radioBtn"/>
+            style="@style/time1radioBtn"/>
 
         <RadioButton
             android:id="@+id/time_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            style="@style/time2radioBtn"  />
 
         <RadioButton
             android:id="@+id/time_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            style="@style/shake3radioBtn" />
+            style="@style/time3radioBtn" />
 
     </RadioGroup>
     <TextView
@@ -110,21 +111,21 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="@dimen/padding_sm"
-            android:checked="true"
-            style="@style/shake1radioBtn"/>
+            style="@style/price1radioBtn"/>
 
         <RadioButton
             android:id="@+id/price_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            style="@style/price2radioBtn"/>
 
         <RadioButton
             android:id="@+id/price_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            style="@style/shake3radioBtn"/>
+            style="@style/price3radioBtn"/>
 
     </RadioGroup>
 

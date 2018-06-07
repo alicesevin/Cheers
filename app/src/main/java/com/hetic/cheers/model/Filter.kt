@@ -11,15 +11,6 @@ class Filter (
     public val difficulty_rate_filter = difficulty_rate_filter
     public val global_rate_filter = global_rate_filter
 
-    fun filter(list : ArrayList<Cocktail>) : ArrayList<Cocktail>{
-        if(price_rate_filter != null){
-            list.forEachIndexed{index, element ->
-                println("index = $index, element = $element")
-            }
-        }
-        return arrayListOf()
-    }
-
     fun getString() : String {
         return "PRICE : " + price_rate_filter +
                 ", DIFFICULTY : " + time_rate_filter +

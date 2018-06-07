@@ -46,6 +46,7 @@
         <item name="android:textAppearance">@style/textStyle</item>
         <item name="android:radioButtonStyle">@style/radioBtnStyle</item>
         <item name="android:progressBarStyleHorizontal">@style/progressBar</item>
+        <item name="android:buttonStyleToggle">@style/tagStyle</item>
     </style>
 
     <style name="progressBar" parent="android:Widget.ProgressBar.Horizontal">
@@ -176,12 +177,14 @@
         <item name="android:lineSpacingExtra">@dimen/detailTextLH</item>
     </style>
     <!-- TAGS -->
-    <style name="tagStyle" parent="@android:style/Widget.Material.Light.Button.Toggle">
+    <style name="tagStyle" parent="@android:style/Widget.Button.Toggle">
         <item name="android:background">@drawable/toggle_bg</item>
         <item name="android:textColor">@drawable/toggle_color</item>
         <item name="android:textSize">@dimen/tagFs</item>
         <item name="android:layout_marginHorizontal">@dimen/padding_xs</item>
         <item name="android:fontFamily">@font/avenir_heavy</item>
+        <item name="android:maxHeight">70dp</item>
+        <item name="android:paddingHorizontal">@dimen/padding_x</item>
     </style>
 
     <!-- BUTTONS -->
@@ -207,21 +210,47 @@
     <style name="radioBtnStyle" parent="@android:style/Widget.CompoundButton.RadioButton">
         <item name="android:background">@drawable/btn_shake_2</item>
         <item name="android:button">@android:color/transparent</item>
+        <item name="android:layout_marginHorizontal">@dimen/padding_x</item>
     </style>
 
     <style name="shake1radioBtn" parent="radioBtnStyle">
         <item name="android:background">@drawable/btn_shake_1</item>
-        <item name="android:checked">true</item>
     </style>
 
     <style name="shake3radioBtn" parent="radioBtnStyle">
         <item name="android:background">@drawable/btn_shake_3</item>
     </style>
 
+    <style name="price1radioBtn" parent="radioBtnStyle">
+        <item name="android:background">@drawable/btn_price_1</item>
+    </style>
+
+    <style name="price2radioBtn" parent="radioBtnStyle">
+        <item name="android:background">@drawable/btn_price_2</item>
+    </style>
+
+    <style name="price3radioBtn" parent="radioBtnStyle">
+        <item name="android:background">@drawable/btn_price_3</item>
+    </style>
+
+
+    <style name="time1radioBtn" parent="radioBtnStyle">
+        <item name="android:background">@drawable/btn_time_1</item>
+    </style>
+
+    <style name="time2radioBtn" parent="radioBtnStyle">
+        <item name="android:background">@drawable/btn_time_2</item>
+    </style>
+
+    <style name="time3radioBtn" parent="radioBtnStyle">
+        <item name="android:background">@drawable/btn_time_3</item>
+    </style>
+
     <style name="filtersBtn" parent="CocktailTheme">
-        <item name="android:drawable">@drawable/ic_filters</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:drawableLeft">@drawable/ic_filters</item>
         <item name="android:padding">@dimen/padding_sm</item>
+        <item name="android:background">@color/android:transparent</item>
+        <item name="android:textColor">@color/grayDark</item>
     </style>
 
     <style name="dotsBtn" parent="btnStyle">
@@ -251,6 +280,12 @@
         <item name="android:background">@android:color/transparent</item>
         <item name="android:drawableLeft">@drawable/ic_arrow_back_white</item>
         <item name="android:drawablePadding">@dimen/padding_xs</item>
+        <item name="android:paddingLeft">0dp</item>
+    </style>
+
+    <style name="linkLeftBlack" parent="linkLeft">
+        <item name="android:drawableLeft">@drawable/ic_arrow_back_black</item>
+        <item name="android:textColor">@color/grayDark</item>
     </style>
 
     <style name="linkWhite" parent="btnStyle">
@@ -269,6 +304,7 @@
         <item name="android:drawableRight">@drawable/ic_arrow_forward_white</item>
         <item name="android:drawablePadding">@dimen/padding_xs</item>
         <item name="android:fontFamily">@font/avenir_heavy</item>
+        <item name="android:paddingRight">0dp</item>
     </style>
 
     <style name="linkText" parent="@android:style/TextAppearance">

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primaryDark"
+    android:background="@drawable/splashscreen"
     android:orientation="vertical"
     tools:context=".ui.AdvancedSearchActivity">
 
@@ -12,14 +12,12 @@
         android:id="@+id/container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingHorizontal="@dimen/padding_md"
-        android:paddingVertical="@dimen/padding_m"
+        android:layout_marginHorizontal="@dimen/padding_sm"
         app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/top_nav"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/top_nav">
 
     </android.support.v4.view.ViewPager>
 
@@ -30,9 +28,9 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="end|center"
+        android:gravity="end"
         app:layout_constraintStart_toStartOf="parent"
-        android:paddingBottom="@dimen/padding_m"
+        android:paddingVertical="@dimen/padding_m"
         android:paddingHorizontal="@dimen/padding_sm">
 
         <LinearLayout
@@ -40,38 +38,34 @@
             android:layout_width="match_parent"
             android:layout_height="10dp"
             android:gravity="center"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal"/>
 
         <Button
             android:id="@+id/back_button"
             style="@style/linkWhite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/next"
-            android:layout_marginTop="@dimen/padding_s"/>
+            android:text="@string/next"/>
 
     </LinearLayout>
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:id="@+id/top_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:paddingVertical="@dimen/padding_m"
-        android:paddingTop="@dimen/padding_sm">
+        android:orientation="horizontal"
+        android:paddingVertical="@dimen/padding_sm">
 
         <Button
             android:id="@+id/previous_button"
             style="@style/linkLeft"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/destroy"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/destroy" />
 
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

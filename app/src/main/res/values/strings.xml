@@ -50,8 +50,8 @@
     <string-array name="slide_titles">
         <item>Avec les ingrédients : </item>
         <item>Dans le cadre de : </item>
-        <item>Je recherche un cocktail à base de : </item>
-        <item>De type : </item>
+        <item>Avec une base de : </item>
+        <item>Je recherche un cocktail : </item>
     </string-array>
     <string name="voted">Merci d\'avoir voté.</string>
     <string name="change_serach">Modifier ma recherche</string>
