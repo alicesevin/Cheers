@@ -9,11 +9,11 @@ import com.hetic.cheers.model.Tag
 import com.hetic.cheers.utils.inflate
 import kotlinx.android.synthetic.main.cocktail_card_item.view.*
 
-class TagCardAdapter(val listener: (Tag) -> Unit) : RecyclerView.Adapter<TagCardAdapter.ViewHolder>() {
+class TagCardAdapter(private val mTemplate : Int,val listener: (Tag) -> Unit) : RecyclerView.Adapter<TagCardAdapter.ViewHolder>() {
 
     private var mItems: List<Tag> = emptyList()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(parent.inflate(R.layout.tag_card_item))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(parent.inflate(mTemplate))
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) = viewHolder.bind(mItems[position], listener)
 

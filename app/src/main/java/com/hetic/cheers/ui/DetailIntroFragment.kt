@@ -66,7 +66,7 @@ class DetailIntroFragment : Fragment() {
     private fun loadContent(view : View){
         //TAGS
         val recyclerView = view.findViewById<RecyclerView>(R.id.tags);
-        val adapter = TagCardAdapter {}
+        val adapter = TagCardAdapter(R.layout.tag_card_item_white){}
         recyclerView?.adapter = adapter
         recyclerView?.layoutManager = LinearLayoutManager(recyclerView?.context,  LinearLayoutManager.HORIZONTAL ,false)
         adapter.swapItems(mItem.getFilteredTags())

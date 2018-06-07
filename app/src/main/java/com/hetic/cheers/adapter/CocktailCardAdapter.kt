@@ -41,7 +41,7 @@ class CocktailCardAdapter(
             name.text = mItem.name
 
             //TAGS
-            val adapter = TagCardAdapter {}
+            val adapter = TagCardAdapter(R.layout.tag_card_item) {}
             tags.adapter = adapter
             tags.layoutManager = LinearLayoutManager(itemView.context,  LinearLayoutManager.HORIZONTAL ,false)
             adapter.swapItems(mItem.getFilteredTags(4))

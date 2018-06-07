@@ -11,6 +11,6 @@
         android:layout_height="wrap_content"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/cheers" />
+        app:lottie_rawRes="@raw/cheers_red" />
 
 </LinearLayout>

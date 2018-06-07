@@ -73,7 +73,7 @@ class DetailActivity : AppCompatActivity(),
 
     private fun goToHome(){
         val intent = MainActivity.getIntent(this)
-        startActivity(intent)
+        startActivityForResult(intent,1000)
         finish()
     }
 

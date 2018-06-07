@@ -25,7 +25,5 @@ class IngredientAdapter(val listener: (Ingredient) -> Unit) : RecyclerView.Adapt
         }
     }
 
-    fun swapItems(items: List<Ingredient>) {
-        mItems = items
-    }
+    fun swapItems(items: List<Ingredient>) { mItems = items }
 }

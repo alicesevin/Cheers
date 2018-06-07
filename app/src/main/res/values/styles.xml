@@ -214,8 +214,9 @@
     </style>
 
     <style name="filtersBtn" parent="CocktailTheme">
-        <item name="android:background">@mipmap/filters</item>
+        <item name="android:drawable">@drawable/ic_filters</item>
         <item name="android:layout_weight">1</item>
+        <item name="android:padding">@dimen/padding_sm</item>
     </style>
 
     <style name="dotsBtn" parent="btnStyle">

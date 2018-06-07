@@ -54,4 +54,6 @@
         <item>De type : </item>
     </string-array>
     <string name="voted">Merci d\'avoir voté.</string>
+    <string name="change_serach">Modifier ma recherche</string>
+    <string name="no_results_text">Nous n\'avons trouvé aucun résultat correspondant à votre recherche.</string>
 </resources>

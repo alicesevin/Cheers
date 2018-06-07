@@ -52,12 +52,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        mCocktails = intent.getSerializableExtra(COCKTAILS) as List<Cocktail>
-        mTags =  intent.getSerializableExtra(TAGS) as List<Tag>
-        mRecommandations =intent.getSerializableExtra(RECOMMANDATIONS) as ArrayList<Cocktail>
-        initAutomplete()
-        initCocktailList()
-        initAdvancedSearchButton()
+        if(intent.hasExtra(COCKTAILS)){
+            mCocktails = intent.getSerializableExtra(COCKTAILS) as List<Cocktail>
+            mTags =  intent.getSerializableExtra(TAGS) as List<Tag>
+            mRecommandations =intent.getSerializableExtra(RECOMMANDATIONS) as ArrayList<Cocktail>
+            initAutomplete()
+            initCocktailList()
+            initAdvancedSearchButton()
+        }
     }
 
     //INIT RECYCLER VIEW WITH CHOSEN ITEM LAYOUT AND ORIENTATION FOR TAGS

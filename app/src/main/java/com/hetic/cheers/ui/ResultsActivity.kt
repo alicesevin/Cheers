@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Handler
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.hetic.cheers.R
@@ -48,8 +49,6 @@ class ResultsActivity() : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_results)
-        Glide.with(this).load(R.mipmap.loader).into(loader)
-        loader.visibility = View.VISIBLE
 
         //initRecyclerView
         mAdapter = ResultAdapter {
@@ -75,9 +74,7 @@ class ResultsActivity() : Activity() {
                         mAdapter.swapItems(source)
                         mAdapter.notifyDataSetChanged()
                         mItems = source
-                        loader.visibility = View.GONE
-                        Log.d("Results",source.toString())
-                        Log.d("Tags",tags.alcool.toString())
+                        removeLoader()
                     }
                 }
             }
@@ -125,6 +122,12 @@ class ResultsActivity() : Activity() {
         return ele.indexOfChild(btn)
     }
 
+    private fun getLoaderDuration() = 2000L
+    fun removeLoader(){
+        val loaderDuration = getLoaderDuration()
+        Handler().postDelayed({ loader.visibility = View.GONE }, loaderDuration)
+    }
+
     fun filterItems(mItems : List<Cocktail>, filter : Filter){
         loader.visibility = View.VISIBLE
         Log.d("Filtre",filter.getString())
@@ -142,8 +145,6 @@ class ResultsActivity() : Activity() {
 
         mAdapter.swapItems(filteredList)
         mAdapter.notifyDataSetChanged()
-        if(filteredList.size != 0){
-            loader.visibility = View.GONE
-        }
+        removeLoader()
     }
 }

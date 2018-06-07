@@ -14,7 +14,6 @@ tools:context=".ui.ResultsActivity">
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/padding_md"
-        android:paddingTop="@dimen/padding_md"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -29,8 +28,7 @@ tools:context=".ui.ResultsActivity">
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:background="@drawable/transparent_bg"/>
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
 
             <ImageButton
@@ -63,10 +61,11 @@ tools:context=".ui.ResultsActivity">
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageView
+        <include
+            layout="@layout/loader"
             android:id="@+id/loader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
         <TextView
             android:id="@+id/results_text"
@@ -82,6 +81,34 @@ tools:context=".ui.ResultsActivity">
             android:layout_height="wrap_content"
             tools:listitem="@layout/cocktail_card_item"
             android:paddingHorizontal="@dimen/padding_sm" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_md"
+            android:paddingVertical="@dimen/padding_md">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="@dimen/padding_sm"
+                style="@style/detailText"
+                android:text="@string/no_results_text"
+                android:textAlignment="textStart"
+                android:paddingLeft="0dp"/>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/change_serach"
+                android:paddingHorizontal="@dimen/padding_md" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
